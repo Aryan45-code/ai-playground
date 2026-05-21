@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 5, 5, 5;
+  --background-end-rgb: 5, 5, 5;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+}
+
+.text-glow { 
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); 
+}
+
+.mesh-bg {
+  background-color: #050505;
+  background-image: radial-gradient(at 80% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                    radial-gradient(at 0% 50%, hsla(253,16%,7%,1) 0, transparent 50%);
+}
