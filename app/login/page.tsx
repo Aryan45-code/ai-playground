@@ -8,7 +8,7 @@ export default function LoginPage() {
       <p className="text-gray-400 mb-8">Sign in to complete your enrollment.</p>
       
       <button 
-        onClick={() => signIn("google", { callbackUrl: "/enroll" })}
+        onClick={() => signIn("google", { callbackUrl: "/" })}
         className="bg-white text-black px-6 py-3 rounded-lg font-bold shadow-md hover:bg-gray-100 transition flex items-center gap-3"
       >
         <svg className="w-6 h-6" viewBox="0 0 48 48">
