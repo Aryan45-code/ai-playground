@@ -4,7 +4,8 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 
 export default function ProfilePage() {
-  const { data: session, status } = useSession();
+  const sessionData = useSession() || {};
+const { data: session, status } = sessionData;
 
   // If NextAuth is still checking their badge, show a loading screen
   if (status === "loading") {
