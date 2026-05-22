@@ -6,6 +6,7 @@ const prisma = new PrismaClient();
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    console.log("Received data:", body);
     const { name, email, phone, college, paymentId } = body;
 
     // Write the data to the database
@@ -13,11 +14,11 @@ export async function POST(req: Request) {
       // Cast to any to avoid TypeScript errors when the Prisma schema
       // field names differ from the incoming request keys.
       data: {
-        name,
-        email,
-        phone,
-        college,
-        paymentId,
+       name: body.name,
+        email: body.email,
+        phone: body.phone,
+        college: body.college,
+        paymentId: body.paymentId,
       } as any,
     });
 
