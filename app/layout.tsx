@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
-
+import { Providers } from "./Providers";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -18,6 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-[#050505] text-slate-50 antialiased selection:bg-indigo-500 selection:text-white mesh-bg`}>
+        <Providers>
+         {children}
+        </Providers>
         
         {/* GLOBAL NAVIGATION */}
         <nav className="fixed w-full z-50 top-0 backdrop-blur-xl bg-[#050505]/80 border-b border-white/5">
