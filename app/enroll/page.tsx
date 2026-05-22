@@ -49,7 +49,7 @@ export default function EnrollPage() {
           });
 
           alert("Enrollment Complete! Welcome aboard.");
-          // Optional: window.location.href = "/success";
+          window.location.href = "/success";
         },
       };
 
