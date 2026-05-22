@@ -1,6 +1,6 @@
 import { courses } from './../../lib/courseData';
 import { notFound } from 'next/navigation';
-import CheckoutButton from '../../components/CheckoutButton';
+import Link from "next/link";
 
 export default async function CoursePage({ params }: { params: Promise<{ track: string }> }) {
   const resolvedParams = await params;
@@ -51,7 +51,11 @@ export default async function CoursePage({ params }: { params: Promise<{ track: 
         <p className="text-gray-400 mb-6">Total Investment: ₹{course.price}</p>
         
         {/* 2. REPLACING THE DUMMY BUTTON WITH YOUR SMART CHECKOUT BUTTON */}
-        <CheckoutButton courseId={course.id} price={course.price} />
+        <Link href="/enroll" className="inline-block mt-8">
+  <button className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-xl hover:bg-indigo-700 transition shadow-lg hover:scale-105">
+    Enroll Now
+  </button>
+</Link>
         
       </div>
     </div>
