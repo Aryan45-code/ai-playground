@@ -6,36 +6,37 @@ export default function Navbar() {
   const { data: session } = useSession();
 
   return (
-    <nav className="w-full sticky top-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10 p-4">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
+    <nav className="fixed w-full z-50 top-0 backdrop-blur-xl bg-[#050505]/80 border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
-        <Link href="/" className="text-2xl font-extrabold text-white tracking-wider drop-shadow-md">
-          PLATFORM<span className="text-blue-500">.</span>
+        {/* Your Original AI Playground Logo */}
+        <Link href="/" className="text-2xl font-black tracking-tighter flex items-center gap-2">
+          <span>AI <span className="text-indigo-400">PLAYGROUND</span></span>
         </Link>
 
-        <div className="flex items-center space-x-6 text-gray-200 font-medium">
-          <Link href="/course" className="hover:text-white transition drop-shadow">Courses</Link>
+        {/* Navigation & Auth Buttons */}
+        <div className="flex items-center gap-8 text-sm font-semibold">
+          <Link href="/course" className="hidden md:block text-gray-400 hover:text-white transition">Bootcamps</Link>
           
           {session ? (
-            <>
-              <Link href="/profile" className="hover:text-white transition text-blue-400 drop-shadow">
+            <div className="flex items-center gap-4">
+              <Link href="/profile" className="text-indigo-400 hover:text-indigo-300 transition">
                 Your Profile
               </Link>
               <button 
                 onClick={() => signOut({ callbackUrl: '/' })}
-                className="bg-white/10 border border-white/20 px-4 py-2 rounded-lg text-sm hover:bg-white/20 transition drop-shadow"
+                className="text-gray-400 hover:text-white transition"
               >
                 Sign Out
               </button>
-            </>
+            </div>
           ) : (
-            <Link href="/login">
-              <button className="bg-blue-600 border border-blue-500 text-white px-5 py-2 rounded-lg shadow-lg hover:bg-blue-700 transition">
-                Login
-              </button>
+            <Link href="/login" className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-200 transition transform hover:scale-105">
+              Login to Enroll
             </Link>
           )}
         </div>
+
       </div>
     </nav>
   );
